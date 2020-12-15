@@ -94,17 +94,25 @@ count(); // 4
 
 function counterFactory(value) {
   // Code here.
+  let counter = 0;
 
   return {
-
-  };
+    inc: function () {
+      value += 1;
+      return value;
+    },
+    dec: function () {
+      value -= 1;
+      return value;
+    },
+  }
 }
 
 counter = counterFactory(10);
-// counter.inc() // 11
-// counter.inc() // 12
-// counter.inc() // 13
-// counter.dec() // 12
+counter.inc() // 11
+counter.inc() // 12
+counter.inc() // 13
+counter.edec() // 12
 
 
 
