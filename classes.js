@@ -96,7 +96,34 @@ class Manager extends Employee {
 */
 
 //Code Here
+class ProgressiveManager extends Manager {
+  constructor(first_name, last_name, email, age, reports, title, bonus) {
+    super(first_name, last_name, email, age, reports)
+    this.title = 'Bestest Manager'; //new property
+    this.bonus = 0;  //new property
+  }
+  hire() {
+    super.hire();
 
+    if (this.reports.length === 0) {
+      this.title = 'Not a manager';
+    } else if (this.reports.length > 0 && this.reports.length < 4) {
+      this.title = 'Barely manager';
+    } else if (this.reports.length >= 4 && this.reports.length <= 10) {
+      this.title = 'Mostly Manager';
+    } else if (this.reports.length >= 11 && this.reports.length <= 50) {
+      this.title = 'Manager';
+    } else if (this.reports.length >= 51 && this.reports.length <= 100) {
+      this.title = 'Manager Plus';
+    } else {
+      this.title = 'Bestest Manager';
+    }
+  }
+  fire() {
+    super.fire();
+    this.bonus += $100;  //pay manager
+  }
+}
 
 
 ////////// PROBLEM 4 - Black Diamond //////////
@@ -123,5 +150,4 @@ class Manager extends Employee {
 */
 
 //Code Here
-
 
